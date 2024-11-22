@@ -6,7 +6,7 @@ A calculator application that aids users to perform basic arithmetic calculation
 I made use of but not limited to the following:
 
 - w3Schools
-- Modern Javascript - www.js.info
+- Modern Javascript - www.javascript.info
 - MDN
 - font awesome
 - Youtube
