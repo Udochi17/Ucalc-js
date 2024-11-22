@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functional-Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+    <link
+rel="stylesheet"
+href="/fontawesome-free-6.5.1-web/css/all.css"
+/>
+<link rel="icon" href="/Calculator-great/logo.png">
+</head>
+<body>
+    <main>
+        <section class="calc-container">
+            <div class="calc-screen">
+                <div id="rcontainer" class="result-container">
+                    <div  id="result" class="result-div" >0</div>
+                    <div id="aggregate" class="result-aggregate"></div>
+                </div>
+                
+            </div>
+
+            <div class="buttons-container">
+                <button type="button" id="clr" class="clear btn orange">AC</button>
+                <button type="button" id="del" class="btn orange"><i class="fa-solid fa-delete-left fa-lg"></i></button>
+                <button type="button" id="percnt"  data-action="percent" class="percent btn orange">&percnt;</button>
+                <button type="button" id="div" data-name="operator"  data-action="divide" class="operator btn orange">&div;</button>
+                <button type="button" id="times" data-name="operator" data-action="multiply" class="operator btn orange">&times;</button>
+                <button type="button" id="minus" data-name="operator" data-action="subtract" class="operator btn orange">&minus;</button>
+                <button type="button" id="add" data-name="operator"  data-action="add" class="operator btn orange">&plus;</button>
+                <button type="button" id="equals" data-action="calculate" class="equalsto btn">=</button>
+                <button type="button" id="one" class=" btn numDigit">1</button>
+                <button type="button" id="two" class=" btn numDigit">2</button>
+                <button type="button" id="three" class=" btn numDigit">3</button>
+                <button type="button" id="four" class=" btn numDigit">4</button>
+                <button type="button" id="five" class=" btn numDigit">5</button>
+                <button type="button" id="six" class=" btn numDigit">6</button>
+                <button type="button" id="seven" class=" btn numDigit">7</button>
+                <button type="button" id="eight" class=" btn numDigit">8</button>
+                <button type="button" id="nine" class=" btn numDigit">9</button>
+                <button type="button" id="zero" class=" btn numDigit">0</button>
+                <button type="button" id="dot" class="btn" >.</button>
+            </div>
+        </section>
+    </main>
+    <script src="calculator.js"></script>
+</body>
+</html>

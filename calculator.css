@@ -1,0 +1,276 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #243441;
+    font-weight: 700;
+}
+
+.calc-container {
+    background-color: #243441;
+    box-shadow: -1px 2px 10px #4f1c06ad;
+    height: 100vh;
+    padding: 10px;
+    width: min(100vw, 420px);
+}
+
+.buttons-container {
+    background-color: #243441;
+    display: grid;
+    grid-template-areas: 
+    "ac del percent divide"
+        "n7 n8 n9 time"
+        "n4 n5 n6 minus"
+        "n1 n2 n3 ad"
+        "n0 do eq eq" ;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    height: 65%;
+    margin-top: 10px;
+    padding: 5px;
+    width: 100%;
+}
+
+.clear {
+    grid-area: ac;
+}
+
+.delete {
+    grid-area: del;
+}
+
+.percent {
+    grid-area: percent;
+}
+
+.divide {
+    grid-area: divide;
+}
+
+.multiply {
+    grid-area: time;
+}
+
+.plus {
+    grid-area: ad;
+}
+
+.minus {
+    grid-area: minus;
+}
+
+.equalsto {
+    grid-area: eq;
+}
+
+#one {
+    grid-area: n1;
+}
+
+#two {
+    grid-area: n2;
+}
+
+#three {
+    grid-area: n3;
+}
+
+#four {
+    grid-area: n4;
+}
+
+#five {
+    grid-area: n5;
+}
+
+#six {
+    grid-area: n6;
+}
+
+#seven {
+    grid-area: n7;
+}
+
+#eight {
+    grid-area: n8;
+}
+
+#nine {
+    grid-area: n9;
+}
+
+#zero {
+    grid-area: n0;
+}
+
+#dot {
+    grid-area: do;
+}
+
+.calc-screen {
+    background-color: #243441;
+    color: #fdfefd;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+    height: 30%;
+    justify-content: end;
+    width: 100%;
+
+}
+
+.result-div {
+    font-size: 5rem;
+    overflow-x: auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.result-aggregate {
+    color: #aeabaa;
+    font-size: 22px;
+    height: 30px;
+    margin-top: 10px;
+    overflow-x: auto;
+    padding: 2px;
+    scrollbar-width: none;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.btn {
+    background-color: #243441;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 5px 20px #05090e83;
+    color: #faf9f9;
+    font-size: 1.2rem;
+    height: max(70px, 80%);
+    justify-self: center;
+    text-align: center;
+    transition: background-color 0.1ms;
+    width: max(70px, 80%);
+}
+
+/* .clear {
+ font-size: 1.2rem;
+} */
+
+.numDigit, #dot {
+    padding: 25px;
+}
+
+.equalsto {
+    background-color: #ed802e;
+    color: white;
+    width: 80%;
+}
+
+.result-container {
+    border-radius: 10px 10px 2px 2px;
+    display: flex;
+    flex-flow: column nowrap;
+    font-size: 3.8rem;
+    height: 90%;
+    justify-content: space-evenly;
+    padding: 10px 20px 10px 5px;
+    text-align: right;
+}
+
+ .numDigit:active, .btn:active, #dot:active{
+    opacity: 0.8;
+    background-color: #ff0808ab;
+    transform: scale(115%);
+    color: #ebebeb;
+} 
+
+.orange {
+    color:#ff8e37;
+    font-size: 1.3rem;
+}
+
+/* Media-queries */
+
+@media  (min-width: 450px) {
+    body {
+        background: #f5a66b;
+    }
+     
+    .calc-container {
+        border-radius: 25px;
+        height: 90vh;
+        margin: 5vh auto;
+        width: 300px;
+    }
+
+     .numDigit,
+    .btn {
+        width: 55px;
+        height: 60px;
+    } 
+
+    .numDigit, #dot{
+        padding: 22px;
+    }
+
+    .equalsto {
+        width: 80%;
+    }
+
+    .result-aggregate {
+        font-size: 20px;
+    }
+
+    .result-div {
+        font-size: 3rem;
+    }
+
+    .result-container {
+        box-shadow: 0px 2px 3px 3px #0e1c27a5;
+    }
+}
+
+
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #ebebeb;
+    }
+
+    .calc-container,
+    .buttons-container {
+        background-color: #ebebeb;
+    }
+
+    .calc-screen {
+        background-color: #ebebeb;
+        color: #11212e;
+    }
+
+    .result-aggregate {
+        color: #c5c7cb;
+    }
+
+    .btn,
+    .numDigit{
+        background-color: #ebebeb;
+        box-shadow: 0 5px 20px #05090e23;
+    }
+
+    .numDigit, #dot i {
+        color: #919191;
+    }
+
+    .orange {
+        color: #19242d;
+    }
+
+    .equalsto {
+        background-color: #f5682b;
+    }
+    
+}
