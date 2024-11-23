@@ -150,16 +150,12 @@ body {
     box-shadow: 0 5px 20px #05090e83;
     color: #faf9f9;
     font-size: 1.2rem;
-    height: max(70px, 80%);
+    height: min(70px, 80%);
     justify-self: center;
     text-align: center;
     transition: background-color 0.1ms;
-    width: max(70px, 80%);
+    width: min(70px, 80%);
 }
-
-/* .clear {
- font-size: 1.2rem;
-} */
 
 .numDigit, #dot {
     padding: 25px;
@@ -168,7 +164,7 @@ body {
 .equalsto {
     background-color: #ed802e;
     color: white;
-    width: 80%;
+    width: 90%;
 }
 
 .result-container {
@@ -206,6 +202,8 @@ body {
         height: 90vh;
         margin: 5vh auto;
         width: 300px;
+        max-width: 420px;
+        max-height: 650px;
     }
 
      .numDigit,
@@ -219,7 +217,7 @@ body {
     }
 
     .equalsto {
-        width: 80%;
+        width: 90%;
     }
 
     .result-aggregate {
