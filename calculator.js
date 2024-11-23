@@ -10,7 +10,7 @@ const allInt = document.querySelectorAll('.numDigit');
 const decimalBtn = document.getElementById('dot');
 // Display Screen
 
-const finalResult = document.getElementById('rcontainer');
+//const finalResult = document.getElementById('rcontainer');
 const displayResult = document.getElementById('result');
 const aggResult = document.getElementById('aggregate');
 
@@ -20,6 +20,7 @@ const aggResult = document.getElementById('aggregate');
 
 let inputObj = {};
 let clearDisp = false;
+let repeat = false;
 
 
 // anyBtn.forEach(elem => {
@@ -54,30 +55,23 @@ allInt.forEach(elem => {
             displayResult.textContent = '';
             displayResult.textContent += elem.textContent;
             clearDisp = false;
-            // aggResult.textContent += elem.textContent;
         } else {
             displayResult.textContent += elem.textContent;
-            // aggResult.textContent += elem.textContent;
         }
 
-        if(inputObj.chosenoperation) {
-            inputObj.secondOperand = displayResult.textContent;
-        }
-        
-        // if(bool){
-        //     displayResult.innerText = '';
-        //     bool = false;
-        //     displayResult.textContent += elem.innerText;
-        // } 
-        // inputObj['secondValue'] = displayResult.textContent;
-        // inputArr.push( inputObj );
+        if(inputObj.chosenoperation) inputObj.secondOperand = displayResult.textContent;
+ 
     })
 
  });
 
  operators.forEach(elem => {
-    const action = elem.dataset.action;
+    
     elem.addEventListener('click', () => {
+        
+        const action = elem.dataset.action;
+        if(repeat) aggResult.textContent = '';
+        repeat = false;
         if(inputObj.chosenoperation && !inputObj.secondOperand) return;
         if(inputObj.chosenoperation){
              aggResult.textContent += displayResult.textContent;
@@ -88,20 +82,18 @@ allInt.forEach(elem => {
         } else {
        aggResult.textContent += displayResult.textContent ;
        aggResult.textContent += ' ' + elem.textContent + ' ';
-       inputObj.chosenoperation = action; 
        clearDisp = true; 
      }
+
+       inputObj.chosenoperation = action; 
        inputObj.firstOperand = displayResult.textContent; 
     })
  });
  
 decimalBtn.addEventListener('click', () => {
 
-    if( displayResult.innerText.includes(".") || displayResult.innerText === ''){
-        return;
-    } else {
+    if( displayResult.innerText.includes(".") || displayResult.innerText === '') return;
         displayResult.innerText += decimalBtn.innerText;
-    }
 });
 
 percentageBtn.addEventListener('click',  () => {
@@ -122,13 +114,15 @@ acBtn.addEventListener('click', () => {
     aggResult.innerText = '';
     inputObj = {};
     clearDisp = false;
+    repeat = false;
 });
 
 deleteBtn.addEventListener('click', () => {
+
     let str = displayResult.innerText.split('');
     displayResult.innerText = str.slice(0, -1).join('');
     if(inputObj['secondOperand']) inputObj['secondOperand'] = displayResult.innerText;
-    //alert (`${inputObj['firstOperand']}, ${displayResult.innerText}, ${inputObj['secondOperand']}`)
+
 });
 
 // Arithmetic functions
@@ -154,10 +148,33 @@ const calculate = (int1, operation, int2) => {
 }
 
 equalstoBtn.addEventListener('click', () => {
-   // if(result = 'Error!' && displayResult.textContent === '0' ) return;
-   let result = calculate(inputObj['firstOperand'], inputObj['chosenoperation'], inputObj['secondOperand']);
-   aggResult.textContent += `${displayResult.textContent} =`;
-   displayResult.innerText = result;
-   clearDisp = true;
- //  alert(`${inputObj['firstOperand']}, ${inputObj['chosenoperation']}, ${inputObj['secondOperand']}, ${result}`)
+
+
+  let action = inputObj.chosenoperation;
+  let operate;
+
+    switch (action) {
+        case 'add': operate = '+'
+        break;
+        case 'subtract': operate = '-'
+        break;
+        case 'divide': operate = '÷'
+        break;
+        case 'multiply': operate = 'x'
+        break;
+        default: operate;
+    }
+
+    if(repeat) {
+        inputObj.firstOperand = displayResult.innerText;
+        let result = calculate(inputObj['firstOperand'], inputObj['chosenoperation'], inputObj['secondOperand']);
+        aggResult.textContent = displayResult.textContent + ' ' + operate + ' ' + inputObj.secondOperand + ' ' + equalstoBtn.textContent ;
+        displayResult.innerText = result;
+        clearDisp = true;
+    }  else {  let result = calculate(inputObj['firstOperand'], inputObj['chosenoperation'], inputObj['secondOperand']);
+                aggResult.textContent += `${displayResult.textContent} =  `;
+                displayResult.innerText = result;
+                clearDisp = true;
+                repeat = true; }
+
 })
