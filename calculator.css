@@ -157,7 +157,7 @@ main {
     box-shadow: 0 5px 20px #05090e83;
     color: #faf9f9;
     font-size: 1.2rem;
-    height: min(70px, 80%);
+    height: min(80px, 90%);
     justify-self: center;
     text-align: center;
     transition: background-color 0.1ms;
