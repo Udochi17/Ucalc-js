@@ -59,7 +59,7 @@ allInt.forEach(elem => {
             displayResult.textContent += elem.textContent;
         }
 
-        if(inputObj.chosenoperation) inputObj.secondOperand = displayResult.textContent;
+        if(inputObj.chosenoperation && !clearDisp) inputObj.secondOperand = displayResult.textContent;
  
     })
 
